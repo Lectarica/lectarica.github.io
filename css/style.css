@@ -52,9 +52,10 @@ a:active, a:focus,input:active, input:focus{outline:0;}
 }
 
 #page-content {
-    opacity: 0; /* 初期状態は透明 */
-    transition: opacity 2s ease-in-out; /* 透明度の変化をアニメーション化 */
+    opacity: 0; 
+    transition: opacity 2s ease-in-out; 
 }
+
 
 
 /* 共通

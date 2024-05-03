@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>メモリー</title>
+    <title>tasogare sanka</title>
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -18,6 +18,20 @@
         body {
             opacity: 0; /* 初期状態では透明 */
             transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
+    <style>
+        body {
+            animation: breathe 5s infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% {
+                background-color: #1c0d30;  /* 濃い青 */
+            }
+            100% {
+                background-color: #4a257a;  /* 明るい青 */
+            }
         }
     </style>
 </head>

@@ -15,6 +15,20 @@
             transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
         }
     </style>
+    <style>
+        body {
+            animation: breathe 5s infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% {
+                background-color: #1c0d30;  /* 濃い青 */
+            }
+            100% {
+                background-color: #4a257a;  /* 明るい青 */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="top">

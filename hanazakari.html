@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <style>
+        body {
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
 </head>
 <body>
     <div class="top">
@@ -63,6 +69,11 @@
             <span>そして、バベルの図書館には出口がないんだ……</span></p>
             </blockquote></div>
         <strong>2021/10/11</strong>
+        <script>
+            window.onload = function() {
+                document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
+            };
+        </script>
     </body>
 <footer>
     &copy; 2021-2024 Lectarica
