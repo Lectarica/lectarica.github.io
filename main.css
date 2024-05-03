@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;600&family=Sawarabi+Mincho&display=swap');
+
+body{
+    background-color: #4a257a;
+    color: #ffffff;
+    font-family: 'Sawarabi Mincho', serif;
+    margin: 200px;
+}
+a:link{color: #ffffff;}
+a:visited{color: #ffffff;}
+
+div.top{
+    margin: 0 auto;
+    max-width: 1200px;
+    border-bottom: solid 1px #ffffff;
+}
+
+footer{
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 1200px;
+    padding-top: 15px;
+    text-align: center;
+    border-top: solid 1px #ffffff;
+}
+@media screen and (max-width:480px) {
+    div.top {
+        margin: 0 6%;
+    }	
+
+    footer {
+        margin: 10px 6%;
+    }
+}
