@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <style>
+        body {
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
 </head>
 <body>
     <div class="top">
@@ -22,6 +28,11 @@
     <ol>
     <li>K. Shimura, R. Tazai, Y. Yamakawa, S. Onari, and H. Kontani "Real-Space Loop Current Pattern in Time-Reversal-Symmetry Breaking Phase in Kagome Metals" JPSJ 93, 033704 (2024)</li>
     </ol>
+    <script>
+        window.onload = function() {
+            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
+        };
+    </script>
 </body>
 
 <footer>

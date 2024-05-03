@@ -3,11 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>綺麗なお墓</title>
+    <title>墓碑</title>
+    <style>
+        body {
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="top">
@@ -22,6 +29,12 @@
     <p>2022年3月 名古屋大学理学部物理学科卒業</p>
     <p>2024年3月 名古屋大学理学研究科理学専攻修了</p>
     <p>2024年4月～ 東京大学理学系研究科物理学専攻</p>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        window.onload = function() {
+            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
+        };
+    </script>
 </body>
 
 <footer>

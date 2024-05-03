@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>メモリー</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     <style>
         img{
             margin-bottom: 20px;
             margin-top: 20px;
+        }
+    </style>
+    <style>
+        body {
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
         }
     </style>
 </head>
@@ -30,6 +36,11 @@
             <p><a href="hanazakari.html">彼方</a></p>
         </ul>
     </div>
+    <script>
+        window.onload = function() {
+            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
+        };
+    </script>
 </body>
 <footer>
     &copy; 2020-2024 Lectarica
