@@ -20,10 +20,34 @@
    * Remove the margin in all browsers.
    */
   
-  body {
+  /* body {
     margin: 0;
-  }
+  } */
   
+  /* デフォルトスタイル */
+body {
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* モバイルデバイス用のスタイル */
+@media (max-width: 768px) {
+  body {
+      padding: 10px;
+      font-size: 14px;
+  }
+
+  footer {
+      position: relative; /* モバイルでは固定位置を解除する */
+      width: auto; /* 自動で幅を調整 */
+      padding: 5px 10px; /* モバイル用の余白 */
+  }
+
+  .update-date {
+      font-size: 12px; /* モバイル用のフォントサイズ */
+  }
+}
+
   /**
    * Render the `main` element consistently in IE.
    */
@@ -31,6 +55,18 @@
   main {
     display: block;
   }
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}
+
   
   /**
    * Correct the font size and margin on `h1` elements within `section` and
