@@ -4,20 +4,17 @@ body{
     background-color: #4a257a;
     color: #ffffff;
     font-family: 'Sawarabi Mincho', serif;
-    margin: 200px;
-}
-
-body {
+    margin: 0px;
     padding: 20px;
     font-size: 16px;
-  }
+}
+
   
   /* モバイルデバイス用のスタイル */
   @media (max-width: 768px) {
     body {
         padding: 10px;
         font-size: 14px;
-        margin: 10px
     }
   
     footer {
@@ -44,9 +41,14 @@ body {
       flex-direction: column;
   }
 
+body, .container {
+    white-space: normal; /* テキストが折り返されるように設定 */
+}
+
 img {
     max-width: 100%; /* 画像がコンテナより大きくならないようにする */
     height: auto; /* 画像の高さを自動調整してアスペクト比を保持 */
+    display: block; /* 画像が常に表示されるようにblockに設定 */
 }
   
   @media (min-width: 768px) {
@@ -63,6 +65,10 @@ div.top{
     border-bottom: solid 1px #ffffff;
 }
 
+a:link, a:visited {
+    color: #ffffff; /* リンクの色を白に統一 */
+}
+
 footer{
     margin: 0 auto;
     margin-top: 20px;
@@ -72,11 +78,7 @@ footer{
     border-top: solid 1px #ffffff;
 }
 @media screen and (max-width:480px) {
-    div.top {
-        margin: 0 6%;
-    }	
-
-    footer {
-        margin: 10px 3%;
+    div.top, footer {
+        margin: 10px 3%; /* マージンを統一 */
     }
 }
