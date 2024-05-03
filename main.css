@@ -4,7 +4,8 @@ body{
     background-color: #4a257a;
     color: #ffffff;
     font-family: 'Sawarabi Mincho', serif;
-    margin: 0px;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     font-size: 16px;
 }
@@ -81,4 +82,20 @@ footer{
     div.top, footer {
         margin: 10px 3%; /* マージンを統一 */
     }
+}
+
+.container {
+    max-width: 800px; /* 適切な最大幅を設定 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 5px; /* 余白を付ける */
+}
+
+/* ヘッダー、メインコンテンツ、フッターのスタイルを統一 */
+.top,footer {
+    width: 100%; /* 幅を100%に設定 */
+    text-align: center; /* 中央揃え */
+}
+
+ol li {
+    padding: 20px; /* テキストの左に20pxのマージンを追加 */
 }

@@ -20,12 +20,12 @@
    * Remove the margin in all browsers.
    */
   
-  /* body {
+  body {
     margin: 0;
-  } */
+  }
   
   /* デフォルトスタイル */
-body {
+/* body {
   padding: 20px;
   font-size: 16px;
 }
@@ -65,7 +65,7 @@ body {
     .container {
         flex-direction: row;
     }
-}
+} */
 
   
   /**
