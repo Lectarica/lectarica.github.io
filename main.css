@@ -42,6 +42,11 @@ body {
       display: flex;
       flex-direction: column;
   }
+
+img {
+    max-width: 100%; /* 画像がコンテナより大きくならないようにする */
+    height: auto; /* 画像の高さを自動調整してアスペクト比を保持 */
+}
   
   @media (min-width: 768px) {
       .container {
