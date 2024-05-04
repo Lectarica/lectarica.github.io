@@ -100,6 +100,48 @@ ol li {
     padding: 20px; /* テキストの左に20pxのマージンを追加 */
 }
 
+#fish-icon {
+    position: fixed;
+    font-size: 30px; /* アイコンのサイズ設定 */
+}
+
+#tooltip {
+    position: fixed;
+    bottom:300px; /* 魚のアイコンのすぐ上 */
+    right: 500px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    border-radius: 5px;
+    display: none; /* 初期状態では非表示 */
+    width: auto;
+    min-width: 100px;
+    z-index: 1000; /* 必要に応じて調整 */
+    opacity: 0; /* 初期状態の透明度 */
+    transition: opacity 1.0s ease-in-out; /* 透明度の変化のアニメーション */
+}
+
+#tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20%; /* 吹き出しのしっぽの位置を調整 */
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+#tooltip.show {
+    display: block;
+    opacity: 1; /* 完全に表示されるときの透明度 */
+}
+
+.topcontents a:hover + #tooltip {
+    display: block;
+}
+
 #page-content {
     opacity: 0; /* 初期状態は透明 */
     transition: opacity 2s ease-in-out; /* 透明度の変化をアニメーション化 */

@@ -7,11 +7,37 @@
     <title>tasogare sanka</title>
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <i class="fas fa-fish" style="position: fixed;"></i>
+    <ul class="topcontents">    </ul>
+    <div id="tooltip" style="display: none;">Tooltip Content</div>
     <script src="main.js"></script>
     <style>
         body {
             opacity: 0; /* 初期状態では透明 */
             transition: opacity 1.0s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
+    <style>
+        .fas.fa-fish {
+            position: fixed;
+            bottom: 250px;
+            right: 600px;
+            animation: sway 3s ease-in-out infinite;
+            transform-origin: center; /* 回転の中心をアイコンから一定距離に設定 */
+            font-size: 35px;
+        }
+    
+        @keyframes sway {
+        0% {
+            transform: rotate(5deg); /* 右に5度傾ける */
+        }
+        50% {
+            transform: rotate(-5deg); /* 左に5度傾ける */
+        }
+        100% {
+            transform: rotate(5deg); /* 右に5度傾ける */
+        }
         }
     </style>
     <style>
@@ -31,7 +57,7 @@
     <style>
         img {
             margin-bottom: 10px;
-            margin-top: 50px;
+            margin-top: 70px;
             transition: transform 0.15s ease-in-out; /* アニメーションの速度と形式 */
         }
     
@@ -60,14 +86,14 @@
     </div >
     <div style="display: flex; justify-content: center;">
     <a href="https://maps.app.goo.gl/emQMYKuxmBaHBWgq9">
-    <img src="twilight.jpg" alt="さよならのまち" width="600" height="400">
+    <img src="twilight.jpg" alt="さよならのまち" width="450" height="300">
     </div>
     <div class="contents", style="text-align:center">
         <ul class="topcontents">
-            <p><a href="profile.html">墓碑</a></p>
-            <p><a href="physics.html">論文</a></p>
-            <p><a href="hanazakari.html">彼方</a></p>
-            <p><a href="link.html">呼吸口</a></p>
+            <p><a href="profile.html" data-tooltip="略歴です">墓碑</a></p>
+            <p><a href="physics.html" data-tooltip="業績の羅列です">論文</a></p>
+            <p><a href="hanazakari.html" data-tooltip="昔の思い出です">彼方</a></p>
+            <p><a href="link.html" data-tooltip="各種リンク">呼吸口</a></p>
         </ul>
     </div>
     <script>
@@ -75,6 +101,22 @@
             document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
         };
     </script>
+    <script>
+        document.querySelectorAll('.topcontents a').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.innerText = item.getAttribute('data-tooltip');
+                tooltip.style.display = 'block';
+                tooltip.classList.add('show');
+            });
+        
+            item.addEventListener('mouseleave', function() {
+                const tooltip = document.getElementById('tooltip');
+                tooltip.style.display = 'none';
+                tooltip.classList.remove('show');
+            });
+        });
+        </script>
 </body>
 <footer>
     &copy; 2020-2024 Lectarica
