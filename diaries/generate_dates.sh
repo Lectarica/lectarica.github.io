@@ -5,7 +5,7 @@ for month in {01..12}; do
     for day in {01..31}; do
         # 日付の妥当性をチェック
         if date -d "2025-${month}-${day}" >/dev/null 2>&1; then
-            filename="2025${month}${day}-dialy.txt"
+            filename="2025-${month}-${day}-dialy.txt"
             touch "$filename"
         fi
     done
