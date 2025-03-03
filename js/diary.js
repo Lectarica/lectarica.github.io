@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dateInput.addEventListener('change', function() {
         const selectedDate = dateInput.value;
-        const fileName = `${selectedDate}-diary.txt`;
+        const fileName = `diaries/${selectedDate}-diary.txt`;
 
         fetch(fileName)
             .then(response => {
