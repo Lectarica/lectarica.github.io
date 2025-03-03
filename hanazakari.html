@@ -56,6 +56,20 @@
             margin-bottom: 20px;
         }
     </style>
+    <script>
+        function submitDiaryEntry() {
+            const content = document.getElementById('diaryContent').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/diary', true);
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert('Diary entry saved successfully!');
+                }
+            };
+            xhr.send(JSON.stringify({ content: content, updated_at: new Date().toISOString() }));
+        }
+    </script>
 </head>
 <body>
     <div class="top">
@@ -65,7 +79,11 @@
             &gt; 彼方
         </p>
     </div>
-    <div class="entry"><h2 id="愛知県芸大音楽学部-第54回定期演奏会" data-id="愛知県芸大音楽学部-第54回定期演奏会"><span>愛知県芸大音楽学部　第54回定期演奏会</span></h2><p><span>友人のO君に情報を貰い、愛知県芸ホールで行われた演奏会に出席した。友人の演奏を聴きに行くというO君にプログラムを見せてもらうと、ラヴェルを筆頭にシベリウス、セザール・フランク等私好みの作曲家の名が並んでいたので、夜の予定が空いていることを確認しその場で同行を決めた。3階席のちょうど真ん中付近に腰を落ち着かせることが出来たのは幸いだった。</span><br>
+    <form onsubmit="event.preventDefault(); submitDiaryEntry();">
+        <textarea id="diaryContent" placeholder="Write your diary entry here..."></textarea>
+        <button type="submit">Save Entry</button>
+    </form>
+    
         <span>私は高校を卒業すると同時にピアノの指導を受けることも辞めてしまったから、大学以降は気の赴くままに、そしてさほどまとまった時間を取ることもなく、サークルで漫然とピアノを弾いている状態が続いている。自己流で気に入った作曲家の曲を演奏、研究するのも楽しいが、やはり大学教育のもとで数年間音楽の研鑽を積んだ人間の演奏は圧倒的である。3年生や4年生の奏でる旋律の背後に、どれほどの勉強や出会いが潜んでいるのかを努めて想像することは、多少の感傷をはらんでいるにせよ、快いものである。</span><br>
         <span>組曲「夜とガスパール」の第3曲「スカルボ」を、私と同じ学年である女性が弾いていた。ラヴェルは私が大学生活において最も傾倒した芸術家の一人であるから、精神の大部分を注力して聴いた。いつも聴いているせいで今更何を集中することがあるのかと自分に問いかけてしまうほどであった。音楽学部の優秀者というだけあって、一点の曇りもない素晴らしい演奏で、しなやかな同音反復と煌びやかなアルペジオの波を未だ忘れることが出来ないでいる。</span><br>
         <span>ラヴェルにまつわるもっとも古い記憶は、恐らくとあるピアノコンクールに聴衆として招待いただいた時聴いた「夜蛾」であると思う。バッハのフーガ、モーツァルトのピアノソナタが流れている中緩やかに、しかしはっきりと流れていく不協和音の粒は、新鮮な驚きを私に齎した。明らかに異質で、それでいてひときわ異彩を放っている音楽が、世界のどこかに確かに存在するのだ。その後、主な舞台が19世紀末から20世紀初頭にかけてのフランスであったことを学んだ。</span><br>
