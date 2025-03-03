@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lectarica's memory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <script src="js/diary.js"></script>
+    <style>
+        body {
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+            animation: breathe 5s infinite alternate;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .entry {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        @keyframes breathe {
+            0% {
+                background-color: #1c0d30;  /* 濃い青 */
+            }
+            100% {
+                background-color: #4a257a;  /* 明るい青 */
+            }
+        }
+
+        .entry h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1 class="title">彼方</h1>
+        <p class="nav">
+            <a href="index.html">TOP</a> 
+            > 彼方
+        </p>
+    </div>
+    <div class="entry">
+        <h2>日記を表示</h2>
+        <input type="date" id="date-input" />
+        <div id="diary-content" class="diary-content">
+            日記の内容がここに表示されます。
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
+        };
+    </script>
+</body>
+<footer>
+    &copy; 2021-2024 Lectarica
+</footer>
+</html>
