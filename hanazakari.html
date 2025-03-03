@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <script src="js/diary.js"></script>
     <style>
         body {
             opacity: 0; /* 初期状態では透明 */
@@ -25,6 +26,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             max-width: 600px;
+            text-align: center;
         }
 
         @keyframes breathe {
@@ -88,10 +90,13 @@
             &gt; 彼方
         </p>
     </div>
-    <form onsubmit="event.preventDefault(); submitDiaryEntry();">
-        <textarea id="diaryContent" placeholder="Write your diary entry here..."></textarea>
-        <button type="submit">Save Entry</button>
-    </form>
+    <div class="entry">
+        <h2>日記を表示</h2>
+        <input type="date" id="date-input" />
+        <div id="diary-content" class="diary-content">
+            日記の内容がここに表示されます。
+        </div>
+    </div>
     
         <span>私は高校を卒業すると同時にピアノの指導を受けることも辞めてしまったから、大学以降は気の赴くままに、そしてさほどまとまった時間を取ることもなく、サークルで漫然とピアノを弾いている状態が続いている。自己流で気に入った作曲家の曲を演奏、研究するのも楽しいが、やはり大学教育のもとで数年間音楽の研鑽を積んだ人間の演奏は圧倒的である。3年生や4年生の奏でる旋律の背後に、どれほどの勉強や出会いが潜んでいるのかを努めて想像することは、多少の感傷をはらんでいるにせよ、快いものである。</span><br>
         <span>組曲「夜とガスパール」の第3曲「スカルボ」を、私と同じ学年である女性が弾いていた。ラヴェルは私が大学生活において最も傾倒した芸術家の一人であるから、精神の大部分を注力して聴いた。いつも聴いているせいで今更何を集中することがあるのかと自分に問いかけてしまうほどであった。音楽学部の優秀者というだけあって、一点の曇りもない素晴らしい演奏で、しなやかな同音反復と煌びやかなアルペジオの波を未だ忘れることが出来ないでいる。</span><br>
