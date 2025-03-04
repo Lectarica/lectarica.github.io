@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(text => {
                 diaryContent.textContent = text;
+                diaryContent.innerHTML = text.replace(/\n/g, '<br>');
             })
             .catch(error => {
                 diaryContent.textContent = error.message;
             });
     });
 });
+
