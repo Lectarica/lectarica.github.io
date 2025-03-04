@@ -64,10 +64,6 @@ h1, h2{
 	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
 }
 
-#diary-content {
-	white-space: pre-wrap;
-  }
-  
 
 img{
 	max-width: 100%;
@@ -459,3 +455,7 @@ section h2 span {
 		margin: 55px auto;
 	}
 }
+
+#diary-content {
+	white-space: pre-wrap;
+  }
