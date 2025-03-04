@@ -6,7 +6,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
 ul{list-style:none;}
 table{border-collapse:collapse;border-spacing:0;}
-caption,th{text-align:left;}
+caption,th{text-align:center;}
 q:before,q:after{content:'';}
 object,embed{vertical-align:top;}
 legend{display:none;}
@@ -322,7 +322,7 @@ section h2 span {
 	}
 	
 	#sidebar h1{
-		text-align: center;
+		text-align: left;
 		padding-top: 15px;
 	}
 	
