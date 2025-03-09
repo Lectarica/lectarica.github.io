@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.text();
             })
             .then(text => {
+                if (text.trim() === ""){
+                    diaryContent.innnerHTML = "まだ見ぬ未来の話"
+                }
                 diaryContent.textContent = text;
                 diaryContent.innerHTML = text.replace(/\n/g, '<br>');
             })
