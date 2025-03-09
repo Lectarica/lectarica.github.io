@@ -13,7 +13,7 @@
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <i class="fas fa-fish" style="position: fixed;"></i>
+    <i class="fas fa-fish" id="draggable-fish" style="position: fixed;"></i>
     <ul class="topcontents">    </ul>
     <div id="tooltip" style="display: none;">Tooltip Content</div>
     <script src="main.js"></script>
@@ -26,11 +26,15 @@
     <style>
         .fas.fa-fish {
             position: fixed;
-            bottom: 250px;
-            right: 600px;
+            bottom: 20px;
+            right: 20px;
             animation: sway 3s ease-in-out infinite;
             transform-origin: center; /* 回転の中心をアイコンから一定距離に設定 */
             font-size: 35px;
+            cursor: grab;
+        }
+        .fas.fa-fish:active{
+            cursor: grabbing;
         }
     
         @keyframes sway {
@@ -121,9 +125,62 @@
                 tooltip.classList.remove('show');
             });
         });
+
+        const fish = document.getElementById('draggable-fish');
+        let isDragging = false;
+        let offset = { x: 0, y: 0 };
+
+        function startDrag(e) {
+            isDragging = true;
+            e.preventDefault();
+            const rect = fish.getBoundingClientRect();
+            let clientX, clientY;
+            if(e.type === 'touchstart') {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+            else{
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            offset.x = clientX - rect.left;
+            offset.y = clientY - rect.top;
+
+            fish.style.bottom = 'auto';
+            fish.style.right = 'auto';
+        }
+
+        function drag(e){
+            if (!isDragging) return;
+            let clientX, clientY;
+            if(e.type === 'touchmove') {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+            else{
+                clientX = e.clientX;
+                clientY = e.clientY;               
+            }
+            fish.style.left = (clientX - offset.x) + 'px';
+            fish.style.top = (clientY - offset.y)+'px';
+        }
+
+        function endDrag(){
+            isDragging = false;
+        }
+
+        fish.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+        fish.addEventListener('touchstart', startDrag);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', endDrag);
         </script>
 </body>
 <footer>
-    &copy; 2020-2024 Lectarica
+    &copy; 2020-<span id="year"></span> Lectarica
 </footer>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </html>

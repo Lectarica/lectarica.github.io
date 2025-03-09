@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(fileName)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Diary entry not found for this date.');
+                    throw new Error('記事がありません');
                 }
                 return response.text();
             })
             .then(text => {
                 if (text.trim() === ""){
-                    diaryContent.innnerHTML = 'まだ見ぬ未来の話'
+                    throw new Error('まだ見ぬ世界の話')
                 }
                 diaryContent.textContent = text;
                 diaryContent.innerHTML = text.replace(/\n/g, '<br>');
