@@ -75,6 +75,9 @@
     </script>
 </body>
 <footer>
-    &copy; 2020-2025 Lectarica
+    &copy; 2020-<span id="year"></span> Lectarica
 </footer>
+<script>
+    document.getElementById('year').textContent = new Date()
+</script>
 </html>
