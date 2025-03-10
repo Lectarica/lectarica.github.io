@@ -111,6 +111,24 @@
         };
     </script>
     <script>
+        function updateTooltipPosition() {
+            const fishRect = fish.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+
+            let left = fishRect.left + fishRect.width/2 - tooltipRect.width / 2;
+            let top = fishRect.top - tooltipRect.height - 10;
+
+            if (left < 10) {left = 10;}
+            if (left + tooltipRect.width > window.innerWidth - 10) {
+                left = window.inneerWidth - tooltipRect.width - 10;
+            }
+            if (top < 10) {
+                top = fishRect.bottom + 10;
+            }
+            tooltip.style.left = left + "px";
+            tooltip.style.top = top + "px";
+        }
+
         document.querySelectorAll('.topcontents a').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 const tooltip = document.getElementById('tooltip');
@@ -163,6 +181,10 @@
             }
             fish.style.left = (clientX - offset.x) + 'px';
             fish.style.top = (clientY - offset.y)+'px';
+
+            if (tooltip.style.display === 'block') {
+                updateTooltipPosition();
+            }
         }
 
         function endDrag(){
