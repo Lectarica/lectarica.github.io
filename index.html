@@ -111,19 +111,22 @@
         };
     </script>
     <script>
+        const tooltip = document.getElementById('tooltip');
+        const fish = document.getElementById('draggable-fish');
+
         function updateTooltipPosition() {
             const fishRect = fish.getBoundingClientRect();
             const tooltipRect = tooltip.getBoundingClientRect();
 
-            let left = fishRect.left + fishRect.width/2 - tooltipRect.width / 2;
-            let top = fishRect.top - tooltipRect.height - 10;
+            let left = fishRect.left + 5;
+            let top = fishRect.top + (fishRect.height / 2) - (tooltipRect.height / 2);
 
-            if (left < 10) {left = 10;}
             if (left + tooltipRect.width > window.innerWidth - 10) {
                 left = window.inneerWidth - tooltipRect.width - 10;
             }
-            if (top < 10) {
-                top = fishRect.bottom + 10;
+            if (top < 10) { top = 10; }
+            if (top + tooltipRect.height > window.innerHeight - 10) {
+                top = window.innerHeight - tooltipRect.height - 10;
             }
             tooltip.style.left = left + "px";
             tooltip.style.top = top + "px";
@@ -131,20 +134,17 @@
 
         document.querySelectorAll('.topcontents a').forEach(item => {
             item.addEventListener('mouseenter', function() {
-                const tooltip = document.getElementById('tooltip');
                 tooltip.innerText = item.getAttribute('data-tooltip');
                 tooltip.style.display = 'block';
                 tooltip.classList.add('show');
             });
         
             item.addEventListener('mouseleave', function() {
-                const tooltip = document.getElementById('tooltip');
                 tooltip.style.display = 'none';
                 tooltip.classList.remove('show');
             });
         });
 
-        const fish = document.getElementById('draggable-fish');
         let isDragging = false;
         let offset = { x: 0, y: 0 };
 
