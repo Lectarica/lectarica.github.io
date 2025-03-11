@@ -1,186 +1,199 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Lectarica">
-    <meta name="twitter:title" content="黄昏賛歌">
-    <meta name="twitter:description" content="味のない涙、一粒あげます">
-    <meta name="twitter:image" content="https://lectarica.github.io/sunset.png">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tasogare sanka</title>
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <i class="fas fa-fish" id="draggable-fish" style="position: fixed;"></i>
-    <ul class="topcontents">    </ul>
-    <div id="tooltip" style="display: none;">Tooltip Content</div>
-    <script src="main.js"></script>
-    <style>
-        body {
-            opacity: 0; /* 初期状態では透明 */
-            transition: opacity 1.0s ease-in-out; /* 透明度の変化にトランジションを適用 */
-        }
-    </style>
-    <style>
-        .fas.fa-fish {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            animation: sway 3s ease-in-out infinite;
-            transform-origin: center; /* 回転の中心をアイコンから一定距離に設定 */
-            font-size: 35px;
-            cursor: grab;
-        }
-        .fas.fa-fish:active{
-            cursor: grabbing;
-        }
-    
-        @keyframes sway {
-        0% {
-            transform: rotate(5deg); /* 右に5度傾ける */
-        }
-        50% {
-            transform: rotate(-5deg); /* 左に5度傾ける */
-        }
-        100% {
-            transform: rotate(5deg); /* 右に5度傾ける */
-        }
-        }
-    </style>
-    <style>
-        body {
-            animation: breathe 5s infinite alternate;
-        }
-
-        @keyframes breathe {
-            0% {
-                background-color: #1c0d30;  /* 濃い青 */
-            }
-            100% {
-                background-color: #4a257a;  /* 明るい青 */
-            }
-        }
-    </style>
-    <style>
-        img {
-            margin-bottom: 10px;
-            margin-top: 70px;
-            transition: transform 0.15s ease-in-out; /* アニメーションの速度と形式 */
-        }
-    
-        img:hover {
-            transform: scale(1.05); /* 画像を原寸の1.2倍に拡大 */
-        }
-    </style>
-    <style>
-        .topcontents a {
-            text-decoration: none; /* アンダーラインを消す */
-            color: #FFFFFF; /* リンクの初期色 */
-            transition: color 0.4s ease-in-out; /* 色の変化にトランジションを適用 */
-            display: inline-block; /* トランスフォームを適用するために必要 */
-        }
-    
-        .topcontents a:hover {
-            transform: scale(1.2); /* ホバー時に10%大きくする */
-            color: #FFFFFA; /* ホバー時の色変更 */
-        }
-    </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Lectarica">
+  <meta name="twitter:title" content="黄昏賛歌">
+  <meta name="twitter:description" content="味のない涙、一粒あげます">
+  <meta name="twitter:image" content="https://lectarica.github.io/sunset.png">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tasogare sanka</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- ツールチップ用スタイル -->
+  <style>
+    #tooltip {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      z-index: 1000;
+      width: 150px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    body {
+      opacity: 0;
+      transition: opacity 1.0s ease-in-out;
+      animation: breathe 5s infinite alternate;
+    }
+    @keyframes breathe {
+      0% { background-color: #1c0d30; }
+      100% { background-color: #4a257a; }
+    }
+    .fas.fa-fish {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      animation: sway 3s ease-in-out infinite;
+      transform-origin: center;
+      font-size: 35px;
+      cursor: grab;
+    }
+    .fas.fa-fish:active { cursor: grabbing; }
+    @keyframes sway {
+      0% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+    img {
+      margin-bottom: 10px;
+      margin-top: 70px;
+      transition: transform 0.15s ease-in-out;
+    }
+    img:hover { transform: scale(1.05); }
+    .topcontents a {
+      text-decoration: none;
+      color: #FFFFFF;
+      transition: color 0.4s ease-in-out;
+      display: inline-block;
+    }
+    .topcontents a:hover {
+      transform: scale(1.2);
+      color: #FFFFFA;
+    }
+  </style>
 </head>
 <body style="text-align:center">
-    <div class="top">
-        <h1>黄昏賛歌</h1>
-        <p class="tex1",>ここにはヤマゴボウが生い茂るのみ</p>
-    </div >
-    <div style="display: flex; justify-content: center;">
+  <!-- 魚のアイコン -->
+  <i class="fas fa-fish" id="draggable-fish"></i>
+  <ul class="topcontents"></ul>
+  <!-- ツールチップ -->
+  <div id="tooltip" style="display: none;">Tooltip Content</div>
+  
+  <div class="top">
+    <h1>黄昏賛歌</h1>
+    <p class="tex1">ここにはヤマゴボウが生い茂るのみ</p>
+  </div>
+  <div style="display: flex; justify-content: center;">
     <a href="https://maps.app.goo.gl/emQMYKuxmBaHBWgq9">
-    <img src="twilight.jpg" alt="さよならのまち" width="450" height="300">
-    </div>
-    <div class="contents", style="text-align:center">
-        <ul class="topcontents">
-            <p><a href="profile.html" data-tooltip="略歴です">墓碑</a></p>
-            <p><a href="physics.html" data-tooltip="業績の羅列です">論文</a></p>
-            <p><a href="hanazakari_new.html" data-tooltip="昔の思い出です">彼方</a></p>
-            <p><a href="link.html" data-tooltip="各種リンク">呼吸口</a></p>
-        </ul>
-    </div>
-    <script>
-        window.onload = function() {
-            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
-        };
-    </script>
-    <script>
-        document.querySelectorAll('.topcontents a').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const tooltip = document.getElementById('tooltip');
-                tooltip.innerText = item.getAttribute('data-tooltip');
-                tooltip.style.display = 'block';
-                tooltip.classList.add('show');
-            });
-        
-            item.addEventListener('mouseleave', function() {
-                const tooltip = document.getElementById('tooltip');
-                tooltip.style.display = 'none';
-                tooltip.classList.remove('show');
-            });
-        });
+      <img src="twilight.jpg" alt="さよならのまち" width="450" height="300">
+    </a>
+  </div>
+  <div class="contents" style="text-align:center">
+    <ul class="topcontents">
+      <p><a href="profile.html" data-tooltip="略歴です">墓碑</a></p>
+      <p><a href="physics.html" data-tooltip="業績の羅列です">論文</a></p>
+      <p><a href="hanazakari_new.html" data-tooltip="昔の思い出です">彼方</a></p>
+      <p><a href="link.html" data-tooltip="各種リンク">呼吸口</a></p>
+    </ul>
+  </div>
+  
+  <script src="main.js"></script>
+  <script>
+    // ページロード後にフェードイン
+    window.onload = function() {
+      document.body.style.opacity = 1;
+    };
 
-        const fish = document.getElementById('draggable-fish');
-        let isDragging = false;
-        let offset = { x: 0, y: 0 };
+    const tooltip = document.getElementById('tooltip');
+    const fish = document.getElementById('draggable-fish');
 
-        function startDrag(e) {
-            isDragging = true;
-            e.preventDefault();
-            const rect = fish.getBoundingClientRect();
-            let clientX, clientY;
-            if(e.type === 'touchstart') {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            }
-            else{
-                clientX = e.clientX;
-                clientY = e.clientY;
-            }
-            offset.x = clientX - rect.left;
-            offset.y = clientY - rect.top;
+    // 魚の「口元」にツールチップを配置するための関数
+    function updateTooltipPosition() {
+      const fishRect = fish.getBoundingClientRect();
+      const tooltipRect = tooltip.getBoundingClientRect();
+      // 魚が右を向いていると仮定し、右側にツールチップを表示
+      let left = fishRect.right + 5;  // 魚の右端から5pxの余白
+      let top = fishRect.top + (fishRect.height / 2) - (tooltipRect.height / 2);
+      
+      // 画面右端に余裕がない場合は左側に表示
+      if (left + tooltipRect.width > window.innerWidth - 10) {
+        left = fishRect.left - tooltipRect.width - 5;
+      }
+      // 上下の位置が画面外にならないように調整
+      if (top < 10) { top = 10; }
+      if (top + tooltipRect.height > window.innerHeight - 10) {
+        top = window.innerHeight - tooltipRect.height - 10;
+      }
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
 
-            fish.style.bottom = 'auto';
-            fish.style.right = 'auto';
-        }
+    // リンクにホバーした際、ツールチップを魚の現在位置に合わせて表示
+    document.querySelectorAll('.topcontents a').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        tooltip.innerText = item.getAttribute('data-tooltip');
+        tooltip.style.display = 'block';
+        // displayを切り替えた後、再描画のタイミングを待って位置を更新
+        setTimeout(updateTooltipPosition, 0);
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        tooltip.style.display = 'none';
+      });
+    });
 
-        function drag(e){
-            if (!isDragging) return;
-            let clientX, clientY;
-            if(e.type === 'touchmove') {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            }
-            else{
-                clientX = e.clientX;
-                clientY = e.clientY;               
-            }
-            fish.style.left = (clientX - offset.x) + 'px';
-            fish.style.top = (clientY - offset.y)+'px';
-        }
+    // ドラッグ処理（魚を動かす）
+    let isDragging = false;
+    let offset = { x: 0, y: 0 };
 
-        function endDrag(){
-            isDragging = false;
-        }
+    function startDrag(e) {
+      isDragging = true;
+      e.preventDefault();
+      const rect = fish.getBoundingClientRect();
+      let clientX, clientY;
+      if (e.type === 'touchstart') {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      offset.x = clientX - rect.left;
+      offset.y = clientY - rect.top;
+      fish.style.bottom = 'auto';
+      fish.style.right = 'auto';
+    }
 
-        fish.addEventListener('mousedown', startDrag);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', endDrag);
-        fish.addEventListener('touchstart', startDrag);
-        document.addEventListener('touchmove', drag);
-        document.addEventListener('touchend', endDrag);
-        </script>
-</body>
-<footer>
+    function drag(e) {
+      if (!isDragging) return;
+      let clientX, clientY;
+      if (e.type === 'touchmove') {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      fish.style.left = (clientX - offset.x) + 'px';
+      fish.style.top = (clientY - offset.y) + 'px';
+      
+      // ツールチップ表示中なら、魚の移動に合わせて更新
+      if (tooltip.style.display === 'block') {
+        updateTooltipPosition();
+      }
+    }
+
+    function endDrag() { isDragging = false; }
+
+    fish.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
+    fish.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', endDrag);
+  </script>
+  <footer>
     &copy; 2020-<span id="year"></span> Lectarica
-</footer>
-<script>
+  </footer>
+  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  </script>
+</body>
 </html>
