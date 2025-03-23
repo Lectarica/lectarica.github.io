@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 指定した日付（YYYY-MM-DD）の日記を読み込む関数
     function loadDiaryEntry(date) {
         const year = date.split('-')[0];
-        const fileName = `diaries/${year}/${year}-${date}-diary.txt`;
+        const month = date.split('-')[1];
+        const day = date.split('-')[2];
+        const fileName = `diaries/${year}/${year}-${month}-${day}-diary.txt`;
         fetch(fileName)
             .then(response => {
                 if (!response.ok) {
