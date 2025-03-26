@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const yyyy = currentDate.getFullYear();
         const mm = String(currentDate.getMonth()+1).padStart(2, '0');
         const dd = String(currentDate.getDate()).padStart(2, '0');
-        const prevDateStr = `diaries/${yyyy}-${mm}-${dd}-diary.txt`;
+        const prevDateStr = `${yyyy}-${mm}-${dd}`;
         dateInput.value = prevDateStr;
         loadDiaryEntry(prevDateStr);
     });
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const yyyy = currentDate.getFullYear();
         const mm = String(currentDate.getMonth()+1).padStart(2, '0');
         const dd = String(currentDate.getDate()).padStart(2, '0');
-        const nextDateStr = `diaries/${yyyy}-${mm}-${dd}-diary.txt`;
+        const nextDateStr = `${yyyy}-${mm}-${dd}`;
         dateInput.value = nextDateStr;
         loadDiaryEntry(nextDateStr);
     });
