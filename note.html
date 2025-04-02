@@ -1,40 +1,56 @@
 <!DOCTYPE html>
-<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>計算ノート</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
     <style>
         body {
-            text-align: center;
-            background-color: #1c0d30;
-            color: #FFFFFF;
-            opacity: 0;
-            transition: opacity 1.0s ease-in-out;
+            opacity: 0; /* 初期状態では透明 */
+            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
+        }
+    </style>
+    <style>
+        body {
             animation: breathe 5s infinite alternate;
         }
+
         @keyframes breathe {
-            0% { background-color: #1c0d30; }
-            100% { background-color: #4a257a; }
-        }
-        a {
-            color: #FFFFFF;
-            text-decoration: none;
-            transition: color 0.4s ease-in-out;
-        }
-        a:hover {
-            color: #FFFFFA;
+            0% {
+                background-color: #1c0d30;  /* 濃い青 */
+            }
+            100% {
+                background-color: #4a257a;  /* 明るい青 */
+            }
         }
     </style>
 </head>
 <body>
+    <div class="top">
+        <h1 class="title">ノート置き場</h1>
+        <p class="nav">
+            <a href="index.html">TOP</a> 
+            &gt; ノート置き場
+        </p>
+    </div>
+    </header>
     <h1>計算ノート</h1>
     <p><a href="notes/Lindhard.pdf" target="_blank">自由電子ガスにおけるLindhard関数の計算</a></p>
+    <p><a href="notes/hofstadter.pdf" target="_blank">Hofstadterの蝶</a></p>
     <script>
         window.onload = function() {
             document.body.style.opacity = 1;
         };
     </script>
 </body>
+<footer>
+    &copy; 2020-<span id="year"></span> Lectarica
+</footer>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </html>
