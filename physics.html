@@ -1,55 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>墓碑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-    <style>
-        body {
-            opacity: 0; /* 初期状態では透明 */
-            transition: opacity 0.5s ease-in-out; /* 透明度の変化にトランジションを適用 */
-        }
-    </style>
-    <style>
-        body {
-            animation: breathe 5s infinite alternate;
-        }
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>論文 / 墓碑</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bg-1:#1c0d30; --bg-2:#4a257a; --text:#fff; --dim:#e6e0f4;
+      --card: rgba(255,255,255,.06); --maxw: 960px; --gap: 16px; --r: 14px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;line-height:1.7;background:var(--bg-1);opacity:0;transition:opacity .5s ease-in-out;animation:breathe 5s infinite alternate}
+    @keyframes breathe{0%{background-color:var(--bg-1)}100%{background-color:var(--bg-2)}}
+    @media (prefers-reduced-motion:reduce){body{animation:none;transition:none}}
 
-        @keyframes breathe {
-            0% {
-                background-color: #1c0d30;  /* 濃い青 */
-            }
-            100% {
-                background-color: #4a257a;  /* 明るい青 */
-            }
-        }
-    </style>
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(16px,3vw,40px)}
+    header{margin-bottom:clamp(8px,2vw,12px)}
+    h1{margin:0 0 6px;font-size:clamp(28px,4vw,44px);letter-spacing:.06em}
+    .nav{margin:0;color:var(--dim);font-size:clamp(12px,2.2vw,14px)}
+
+    .grid{display:grid;gap:var(--gap);grid-template-columns:1fr}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+
+    section{background:var(--card);border-radius:var(--r);padding:clamp(14px,2.2vw,22px);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+    section h2{margin:0 0 8px;font-size:clamp(18px,2.6vw,24px)}
+
+    ol,ul{margin:0;padding-left:20px}
+    li{margin-bottom:.6em}
+    a{color:#fff}
+
+    footer{margin-top:28px;text-align:center;color:var(--dim);font-size:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+  </style>
 </head>
 <body>
-    <div class="top">
-        <h1 class="title">論文</h1>
-        <p class="nav">
-            <a href="index.html">TOP</a> 
-            &gt; 論文
-        </p>
-    </div>
-</header>
-    <ol>
-    <li>K. Shimura, R. Tazai, Y. Yamakawa, S. Onari, and H. Kontani "Real-Space Loop Current Pattern in Time-Reversal-Symmetry Breaking Phase in Kagome Metals" JPSJ 93, 033704 (2024)</li>
-    </ol>
-    <script>
-        window.onload = function() {
-            document.body.style.opacity = 1; /* ページがロードされたら透明度を1に設定 */
-        };
-    </script>
-</body>
+  <div class="wrap">
+    <header class="top">
+      <h1 class="title">論文</h1>
+      <p class="nav"><a href="index.html">TOP</a> &gt; 論文</p>
+    </header>
 
-<footer>
-    &copy; 2020-2025 Lectarica
-</footer>
+    <main class="grid" id="content">
+      <section aria-labelledby="paper">
+        <h2 id="paper">【論文】</h2>
+        <ol>
+          <li>(査読あり) K. Shimura, R. Tazai, Y. Yamakawa, S. Onari, and H. Kontani, "Real-Space Loop Current Pattern in Time-Reversal-Symmetry Breaking Phase in Kagome Metals", <em>J. Phys. Soc. Jpn.</em> 93, 033704 (2024)</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="award">
+        <h2 id="award">【受賞】</h2>
+        <ol>
+          <li>東京大学計算科学アライアンス</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="domestic">
+        <h2 id="domestic">【国内学会】</h2>
+        <ol>
+          <li>(ポスター・査読なし) 〇志村昂輝、田財里奈、山川洋一、大成誠一郎、紺谷浩、「2次元カゴメ格子系のcharge loop current相における実空間電流分布の研究」、京都大学基礎物理学研究所 研究会「非自明な電子状態が生み出す超伝導現象の最前線：新たな挑戦と展望」、PS-13、京都、2022年12月21日〜23日</li>
+          <li>(ポスター・査読なし) 〇志村昂輝、田財里奈、山川洋一、大成誠一郎、紺谷浩、「カゴメ格子系の電流秩序相における実空間電流分布の研究」、日本物理学会 2023年年次大会、オンライン、2023年3月15日～19日</li>
+          <li>(ポスター・査読なし) 〇志村昂輝、田財里奈、山川洋一、大成誠一郎、紺谷浩、「カゴメ金属のループカレント相における実空間電流分布」、研究会「強相関電子系のフロンティア」、PS-13、名古屋、2023年8月30日〜31日</li>
+          <li>(口頭発表・査読なし) 〇志村昂輝、田財里奈、山川洋一、大成誠一郎、紺谷浩、「カゴメ金属のループカレント相における電流分布」、日本物理学会 2023年年次大会、東北大学、9月20日～22日</li>
+          <li>(ポスター・査読なし) 〇志村昂輝、田財里奈、山川洋一、大成誠一郎、紺谷浩、「カゴメ金属における自発ループ電流の温度依存性およびfilling依存性の理論」、京都大学基礎物理学研究所 研究会「超伝導研究の発展と広がり」、京都、2023年12月20日～23日</li>
+          <li>(ポスター・査読なし) 〇志村昂輝、角田峻太郎、加藤雄介「BCS-RPAに基づく異方的超伝導体における磁気共鳴ピークの理論」、京都大学基礎物理学研究所 研究会「超伝導研究の発展と広がり」、京都、2024年12月20日～23日</li>
+          <li>(口頭発表・査読なし) 〇志村昂輝、角田峻太郎、加藤雄介「スピン三重項超伝導体UTe2における磁気共鳴ピークの理論」、日本物理学会 2025年年次大会、オンライン、2023年3月16日～20日 <!-- NOTE: 年次と年の整合に要確認 -->
+          </li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="intl">
+        <h2 id="intl">【国際会議】</h2>
+        <ol>
+          <li>(ポスター・査読なし) 〇K. Shimura, R. Tazai, Y. Yamakawa, S. Onari, and H. Kontani, 「Chiral charge current with orbital ferromagnetism in loop-current order state in kagome lattice」, QLC, PS2-24, 北海道, 2023年8月10日〜12日</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2020-<span id="year"></span> Lectarica
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener('load',()=>{document.body.style.opacity=1});
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
