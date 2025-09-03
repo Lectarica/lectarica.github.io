@@ -84,6 +84,20 @@ footer{
     }
 }
 
+@media (min-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 200px); /* 余白分を調整 */
+    display: flex;
+    align-items: center;   /* 縦中央 */
+    justify-content: center; /* 横中央 */
+  }
+  .hero img {
+    max-width: 600px; /* 好みでサイズ制御 */
+    width: 100%;
+    height: auto;
+  }
+}
+
 .container {
     max-width: 800px; /* 適切な最大幅を設定 */
     margin: 0 auto; /* 中央寄せ */
